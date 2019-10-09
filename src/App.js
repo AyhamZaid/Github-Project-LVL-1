@@ -41,20 +41,7 @@ export default class App extends Component {
     this.setState({ repos })
   }
 
-  addRepo = e => {
-    e.preventDefault()
-    const title = e.target['repo-title'].value
-    const status = e.target['repo-status'].value
-    const language = e.target['repo-language'].value
-
-    if (!(title === '' || language === '' || status === 'Repo Status (Private/Public)')) {
-      let repos = this.state.repos
-      let repo = {id: uuid, title, status, language}
-      this.setState({ repos: repos.concat(repo) })
-    }
-  }
-
-
+ 
   deleteRepos = id => {
     let repos = this.state.repos.filter(repo => repo.id !== id)
     this.setState({ repos })
@@ -63,7 +50,7 @@ export default class App extends Component {
     const { repos } = this.state;
     return (
       <div>
-        <Add addRepo={this.addRepo} />
+        <Add />
 
         <Table repos={repos}  deleteRepos={this.deleteRepos} toggleStatus={this.toggleStatus} />
       </div>
