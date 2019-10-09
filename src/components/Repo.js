@@ -1,11 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class Repo extends Component {
   render() {
+    const { repo, toggleStatus, deleteRepos } = this.props;
+
+    // console.log(this.props.repo.language)
     return (
-      <div style={{ border: '3px red solid' }}>
-        <h6>Repo</h6>
-      </div>
+      <tr>
+        {/* <h6>{this.props.repo.id}</h6> */}
+
+        <td>{repo.id}</td>
+        <td>{repo.title}</td>
+        <td>{repo.status}</td>
+        <td>
+          <input
+            type="checkbox"
+            defaultChecked={repo.status === "Private" ? true : false}
+            onClick={() => toggleStatus(repo.id)}
+          />
+        </td>
+        <td>{repo.status === "Private" ? "YES" : "NO"}</td>
+        <td>{repo.language}</td>
+        <td>
+          <button
+            className="btn btn-danger"
+            onClick={() => deleteRepos(repo.id)}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
     );
   }
 }

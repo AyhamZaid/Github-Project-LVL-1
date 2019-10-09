@@ -1,26 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class Add extends Component {
   render() {
     return (
-      <div style={{ border: '3px orange solid' }}>
-        <h6>Add</h6>
-        <form>
+      <div>
+        <h6>AddRepo</h6>
+        <form onSubmit={this.props.addRepo}>
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="repo tilte"/>
+              <input
+                type="text"
+                class="form-control"
+                id="repo-tilte"
+                name="repo-tilte"
+                placeholder="repo-tilte"
+              />
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="repo language"/>
+              <input
+                type="text"
+                id="repo-language"
+                name="repo-language"
+                class="form-control"
+                placeholder="repo-language"
+              />
             </div>
             <div class="col">
-            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Repo Status(Prive/public)
-  </button>
+              <div className="form-group col-md-8">
+                <select
+                  className="form-control"
+                  id="repo-status"
+                  name="repo-status"
+                >
+                  <option>Repo Status (Private/Public)</option>
+                  <option>Private</option>
+                  <option>Public</option>
+                </select>
+              </div>
+
+              <div className="form-group col-md-2">
+                <input type="submit" value="Submit" className="btn btn-info" />
+              </div>
             </div>
           </div>
         </form>
-    </div>
+      </div>
     );
   }
 }
