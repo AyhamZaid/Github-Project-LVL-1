@@ -43,7 +43,7 @@ export default class App extends Component {
 
  
   deleteRepos = id => {
-    let repos = this.state.repos.filter(repo => repo.id !== id)
+    let repos =this.state.repos.filter(repo => repo.id !== id)
     this.setState({ repos })
   }
   render() {
