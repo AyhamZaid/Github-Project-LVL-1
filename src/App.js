@@ -28,7 +28,7 @@ export default class App extends Component {
     ]
   };
   toggleStatus = id => {
-    let repos = this.state.repos.map(repo => {
+   const repos = this.state.repos.map(repo => {
       if (repo.id === id) {
         if (repo.status === 'Private') {
           repo.status = 'Public'
