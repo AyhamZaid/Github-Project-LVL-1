@@ -27,6 +27,20 @@ export default class App extends Component {
       }
     ]
   };
+  addRepo = (title, language, status) => {
+    const { state } = this;
+    const { repos } = state;
+    // console.log("title :" , title , "language :" , language);
+    const newRepo = {
+      id: uuid.v4(),
+      title,
+      status,
+      language
+    };
+    this.setState({ repos: [...repos, newRepo] });
+  };
+
+
   toggleStatus = id => {
    const repos = this.state.repos.map(repo => {
       if (repo.id === id) {
@@ -50,7 +64,7 @@ export default class App extends Component {
     const { repos } = this.state;
     return (
       <div>
-        <Add />
+        <Add addRepo={this.addRepo} />
 
         <Table repos={repos}  deleteRepos={this.deleteRepos} toggleStatus={this.toggleStatus} />
       </div>

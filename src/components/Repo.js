@@ -6,18 +6,14 @@ export default class Repo extends Component {
 
     // console.log(this.props.repo.language)
     return (
-      <tr>
+      <tr className="table-danger">
         {/* <h6>{this.props.repo.id}</h6> */}
 
         <td>{repo.id}</td>
         <td>{repo.title}</td>
         <td>{repo.status}</td>
         <td>
-          <input
-            type="checkbox"
-            defaultChecked={repo.status === "Private" ? true : false}
-            onClick={() => toggleStatus(repo.id)}
-          />
+          <input type="checkbox" onClick={() => toggleStatus(repo.id)} />
         </td>
         <td>{repo.status === "Private" ? "YES" : "NO"}</td>
         <td>{repo.language}</td>

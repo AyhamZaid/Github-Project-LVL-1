@@ -7,9 +7,9 @@ export default class Table extends Component {
 
     return (
       <div>
-        <table class="table table-striped table-dark">
-          <thead>
-            <tr>
+        <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr class="table-info">
               <th scope="col">Number</th>
               <th scope="col">Title</th>
               <th scope="col">Repo status</th>
@@ -21,7 +21,7 @@ export default class Table extends Component {
           </thead>
           <tbody>
             {repos.map((repo, i) => {
-              return <Repo repo={repo} key={repos.id} deleteRepos={this.props.deleteRepos} toggleStatus={this.props.toggleStatus}/>;
+              return <Repo repo={repo} key={repos.id} deleteRepos={this.props.deleteRepos} toggleStatus={this.props.toggleStatus} />;
             })}
           </tbody>
         </table>
